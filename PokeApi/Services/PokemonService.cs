@@ -18,7 +18,20 @@ namespace PokeApi.Services
             response.EnsureSuccessStatusCode();
 
             var responseBody = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<Pokemon>(responseBody);
+            var root = JsonConvert.DeserializeObject<Root>(responseBody);
+
+            var pokemon = new Pokemon
+            {
+                Id = root.Id,
+                Name = root.Name,
+                Height = root.Height,
+                Weight = root.Weight,
+                BaseExperience = root.Base_Experience,
+                Abilities = root.Abilities.Select(a => a.Ability.Name).ToList(),
+                FrontDefaultImage = root.Sprites.Front_Default
+            };
+
+            return pokemon;
         }
     }
 }

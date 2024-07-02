@@ -1,12 +1,8 @@
-﻿@model PokeApi.Models.Pokemon
+﻿@{
+    Layout = "_Layout";
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>Pokemon Details</title>
-</head>
-<body>
+<div class="container">
     <h1>Search for a Pokémon</h1>
 
     <form asp-action="Index" method="post">
@@ -17,11 +13,28 @@
 
     @if (Model != null)
     {
-        <h2>@Model.Name</h2>
-        <p>ID: @Model.Id</p>
-        <p>Height: @Model.Height</p>
-        <p>Weight: @Model.Weight</p>
+        <div class="pokemon-details">
+            <h2>@Model.Name</h2>
+            <img src="@Model.FrontDefaultImage" alt="@Model.Name" class="pokemon-image" />
+            <ul class="pokemon-stats">
+                <li><strong>ID:</strong> @Model.Id</li>
+                <li><strong>Height:</strong> @Model.Height</li>
+                <li><strong>Weight:</strong> @Model.Weight</li>
+                <li><strong>Base Experience:</strong> @Model.BaseExperience</li>
+            </ul>
+            <div class="pokemon-abilities">
+                <h3>Abilities:</h3>
+                <ul>
+                    @foreach (var ability in Model.Abilities)
+                    {
+                        <li>@ability</li>
+                    }
+                </ul>
+            </div>
+        </div>
     }
-</body>
-</html>
+</div>
+
+
+
 
