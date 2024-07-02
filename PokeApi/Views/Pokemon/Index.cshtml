@@ -1,0 +1,27 @@
+﻿@model PokeApi.Models.Pokemon
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Pokemon Details</title>
+</head>
+<body>
+    <h1>Search for a Pokémon</h1>
+
+    <form asp-action="Index" method="post">
+        <label for="pokemonId">Enter Pokémon ID:</label>
+        <input type="number" id="pokemonId" name="id" min="1" required />
+        <button type="submit">Search</button>
+    </form>
+
+    @if (Model != null)
+    {
+        <h2>@Model.Name</h2>
+        <p>ID: @Model.Id</p>
+        <p>Height: @Model.Height</p>
+        <p>Weight: @Model.Weight</p>
+    }
+</body>
+</html>
+
