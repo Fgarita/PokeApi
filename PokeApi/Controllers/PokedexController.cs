@@ -6,7 +6,7 @@ namespace Pokedex.Controllers
 {
     public class PokedexController : Controller
     {
-        public IActionResult Index()
+        public IActionResult index()
         {
             return View();
         }
