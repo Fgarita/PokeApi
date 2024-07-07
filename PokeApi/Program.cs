@@ -1,5 +1,3 @@
-using PokeApi.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -25,6 +23,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Pokemon}/{action=Index}/{id?}");
+    pattern: "{controller=Pokedex}/{action=Index}/{id?}");
 
 app.Run();

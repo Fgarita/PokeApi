@@ -1,40 +1,26 @@
-﻿namespace PokeApi.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace PokeApi.Models
 {
     public class Pokemon
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string ImageUrl { get; set; }
+        public string Type { get; set; }
         public int Height { get; set; }
         public int Weight { get; set; }
-        public int BaseExperience { get; set; }
-        public List<string> Abilities { get; set; }
-        public string FrontDefaultImage { get; set; }
+        public List<string> Abilities { get; set; } = new List<string>();
+        public string Description { get; set; }
+        public int HP { get; set; }
+        public int Attack { get; set; }
+        public int Defense { get; set; }
+        public int Speed { get; set; }
+        public List<string> Moves { get; set; } = new List<string>(); // Propiedad para almacenar movimientos
+        public List<string> EvolutionChain { get; set; } = new List<string>();
+        public List<int> BaseStats { get; set; } = new List<int>();
+        public List<string> Locations { get; set; } = new List<string>();
     }
-
-    public class PokemonAbility
-    {
-        public AbilityDetail Ability { get; set; }
-    }
-
-    public class AbilityDetail
-    {
-        public string Name { get; set; }
-    }
-
-    public class Sprites
-    {
-        public string Front_Default { get; set; }
-    }
-
-    public class Root
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Height { get; set; }
-        public int Weight { get; set; }
-        public int Base_Experience { get; set; }
-        public List<PokemonAbility> Abilities { get; set; }
-        public Sprites Sprites { get; set; }
-    }
-
 }
+

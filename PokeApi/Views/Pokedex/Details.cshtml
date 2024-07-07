@@ -1,0 +1,72 @@
+﻿@model PokeApi.Models.Pokemon
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Details</title>
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+    <div class="container2">
+        <h1>@Model.Name</h1>
+        <img src="@Model.ImageUrl" alt="@Model.Name">
+        <dl>
+            <dt>ID:</dt>
+            <dd>@Model.Id</dd>
+            <br/>
+            <dt>Tipo:</dt>
+            <dd>@Model.Type</dd>
+            <br />
+            <dt>Alto:</dt>
+            <dd>@Model.Height</dd>
+            <br />
+            <dt>Peso:</dt>
+            <dd>@Model.Weight</dd>
+            <br />
+            <dt>Hp:</dt>
+            <dd>@Model.HP</dd>
+            <dt>Ataque:</dt>
+            <dd>@Model.Attack</dd>
+            <dt>Defensa:</dt>
+            <dd>@Model.Defense</dd>
+            <dt>Velocidad:</dt>
+            <dd>@Model.Speed</dd>
+            <br />
+            <dt>Abilidades:</dt>
+            <dd>@string.Join(", ", Model.Abilities)</dd>
+            <br />
+            <dt>Descripción:</dt>
+            <dd>@Model.Description</dd>
+            <br />
+            <dt>Localizacion:</dt>
+            <dd>
+                @foreach (var loca in Model.Locations)
+                {
+                    <li>@loca</li>
+                }
+            </dd>
+            <br />
+            <dt>Movimientos:</dt>
+            <dd>
+                @foreach (var move in Model.Moves)
+                {
+                    <li>@move</li>
+                }
+            </dd>
+            <br />
+            <dt>Cadena evolutiva:</dt>
+            <dd>
+                @foreach (var pokemon in Model.EvolutionChain)
+                {
+                    <li>@pokemon</li>
+                }
+            </dd>
+        </dl>
+    </div>
+    <div class="back-button">
+        <a href="@Url.Action("Index", "Pokedex")" class="btn-back">Volver a la búsqueda</a>
+    </div>
+</body>
+</html>
