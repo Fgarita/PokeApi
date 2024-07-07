@@ -11,11 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Image\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\Image\pokedex.jpeg" />
+    <None Include=".github\workflows\deploy.yml" />
   </ItemGroup>
 
 </Project>

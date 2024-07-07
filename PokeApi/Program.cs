@@ -23,6 +23,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Pokedex}/{action=Index}/{id?}");
+    pattern: "{controller=Pokedex}/{action=index}/{id?}");
 
 app.Run();
